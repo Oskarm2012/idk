@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import {Message} from  "./pages/Message";
+import {Buttons} from "./pages/Buttons";
+import {Router} from "./pages/Router";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Counters } from "./pages/Counters";
+import { Items } from "./pages/items";
+import { List } from "./pages/List";
+import { TicTacToe } from "./TicTacToe/TicTacToe";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  <BrowserRouter>
+    <div>
+      <Routes>
+        <Route path='/' element={<Router/>}>
+          <Route index element={<Message/>}/>
+          <Route path ='Buttons' element={<Buttons/>}/>
+          <Route path ='Counters' element={<Counters/>}/>
+          <Route path ='Items' element={<Items/>}/>
+         <Route path ='List' element={<List/>}/>
+         <Route path ='TicTacToe' element={<TicTacToe/>}/>
+         </Route>
+         
+
+
+      </Routes>
     </div>
+    </BrowserRouter>
   );
 }
 
